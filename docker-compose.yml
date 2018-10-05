@@ -13,7 +13,7 @@ services:
     command: mongod --smallfiles --logpath=/dev/null # --quiet
   backend:
     build: backend/
-    command: RUN python manage.py migrate && python manage.py runserver 0.0.0.0:8000
+    command: bash start.sh
     volumes:
       - ./backend:/backend
     ports:

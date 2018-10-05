@@ -42,3 +42,4 @@ db.sqlite3
 .directory
 /.idea/BlackPycharmConfig.xml
 /.idea/saveactions_settings.xml
+/data/
