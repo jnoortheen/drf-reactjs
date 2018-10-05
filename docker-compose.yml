@@ -1,8 +1,19 @@
 version: '2'
 services:
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null # --quiet
   backend:
     build: backend/
-    command: python manage.py runserver 0.0.0.0:8000
+    command: RUN python manage.py migrate && python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./backend:/backend
     ports:

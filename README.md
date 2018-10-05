@@ -1,11 +1,11 @@
 # cookiecutter-drf-react
 
-Updated From 
-
-[cookiecutter](https://github.com/audreyr/cookiecutter) template for
+Updated From [cookiecutter](https://github.com/audreyr/cookiecutter) template for
  - backend
    - django
    - django-rest-framework
+   - [djongo](https://nesdis.github.io/djongo/get-started/)
+        - to inegrate with MongoDB smoothly 
  - frontend
    - reactjs
    - create-react-app
