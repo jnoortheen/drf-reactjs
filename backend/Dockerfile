@@ -2,6 +2,5 @@ FROM python:3.7
 ENV PYTHONUNBUFFERED 1
 RUN mkdir /backend
 WORKDIR /backend
-ADD requirements.txt /backend/
-RUN pip install -r requirements.txt
-#ADD . /backend/
+ADD pyproject.lock /backend/
+RUN pip install poetry && poetry install
