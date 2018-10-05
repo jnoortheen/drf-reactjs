@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     # 3rd party apps
     "rest_framework",
     "rest_framework.authtoken",
+    "django_extensions",
     # local apps
+    "standards",
 ]
 
 MIDDLEWARE = [
