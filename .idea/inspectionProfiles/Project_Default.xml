@@ -1,0 +1,32 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="6">
+            <item index="0" class="java.lang.String" itemvalue="django-utils-plus" />
+            <item index="1" class="java.lang.String" itemvalue="django-s3-storage" />
+            <item index="2" class="java.lang.String" itemvalue="django-logentry-admin" />
+            <item index="3" class="java.lang.String" itemvalue="django-postgres-extra" />
+            <item index="4" class="java.lang.String" itemvalue="Django" />
+            <item index="5" class="java.lang.String" itemvalue="django-auditlog" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="modelli.models.TextileColor.id" />
+          <option value="modelli.models.Client.dress_set" />
+          <option value="object.get_form" />
+          <option value="object.formfield_for_foreignkey" />
+          <option value="custom_admin.mixins.AutoModelSelect2WidgetMixin.model" />
+          <option value="modelli.models.dress_client_order_models.Dress2ClientOrderCopyMixin.save" />
+          <option value="object.changeform_view" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
