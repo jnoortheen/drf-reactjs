@@ -22,7 +22,7 @@ services:
       - "8000"
   frontend:
     build: frontend/
-    command: npm run start
+    command: yarn start
     volumes:
       - ./frontend:/frontend
       - /frontend/node_modules
