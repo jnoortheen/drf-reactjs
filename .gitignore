@@ -41,3 +41,4 @@ db.sqlite3
 # KDE
 .directory
 /.idea/BlackPycharmConfig.xml
+/.idea/saveactions_settings.xml
