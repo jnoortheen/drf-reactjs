@@ -40,3 +40,4 @@ db.sqlite3
 
 # KDE
 .directory
+/.idea/BlackPycharmConfig.xml
