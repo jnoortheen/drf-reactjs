@@ -25,3 +25,11 @@ docker-compose -f docker-compose.yml build
 docker-compose -f docker-compose.yml up
 ```
 
+# local development
+
+- ensure that [pre-commit](https://pre-commit.com/) is installed 
+- `black` is used to format together with `pre-commit` to install the hook after cloning the repo
+
+```bash
+pre-commit install
+```
