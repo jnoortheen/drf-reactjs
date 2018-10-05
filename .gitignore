@@ -35,6 +35,7 @@ db.sqlite3
 *.iml
 .idea/modules.xml
 .idea/misc.xml
+.idea/workspace.xml
 *.ipr
 
 # KDE
