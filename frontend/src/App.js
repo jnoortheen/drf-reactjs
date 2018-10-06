@@ -1,28 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import 'react-table/react-table.css'
+import 'bulma/css/bulma.css'
+import { Columns, Container } from 'bloomer'
+import ListView from './listView'
 
 class App extends Component {
-  render() {
+  constructor (props) {
+    super(props)
+    this.state = {}
+  }
+
+  render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <Container>
+        <br/>
+        <Columns>
+          <h1 className="title column">
+            Standards
+          </h1>
+          <div className="column">
+            <button className="button is-large is-primary">
+              Add
+            </button>
+          </div>
+        </Columns>
+        <ListView/>
+      </Container>
+    )
   }
 }
 
-export default App;
+export default App
