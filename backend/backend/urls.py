@@ -16,8 +16,9 @@ Including another URLconf
 from django.conf.urls import url, include
 from rest_framework import routers
 
+from standards.views import StandardViewSet
 
-router = routers.SimpleRouter()
-# router.register(r'users', UserViewSet)
+router = routers.DefaultRouter()
+router.register(r"standards", StandardViewSet)
 
 urlpatterns = [url(r"^api/", include(router.urls))]

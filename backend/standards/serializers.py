@@ -1,28 +1,41 @@
 from rest_framework import serializers
+from typing import List
+
+from standards import models
 
 
-class TagSerializer(serializers.Serializer):
+class TagSerializer(serializers.ModelSerializer):
     """nested node"""
 
-    _id = serializers.CharField(read_only=True)
-
-    name = serializers.CharField(max_length=100)
-    """one of "GRADE", "LEARNING_DOMAIN", "FULL_CODE", """
-
-    value = serializers.CharField(allow_blank=True, allow_null=True, required=False)
-    """the tag's value"""
-
-    description = serializers.CharField(
-        allow_blank=True, allow_null=True, required=False
-    )
-    """optional description. Only be filled for the deepest node."""
+    class Meta:
+        model = models.Tag
+        read_only_fields = ("_id",)
+        fields = "__all__"
 
 
-class StandardSerializer(serializers.Serializer):
+class StandardSerializer(serializers.ModelSerializer):
     """root node of the data"""
-
-    _id = serializers.CharField(read_only=True)
-    name = serializers.CharField(max_length=100)
 
     tags = TagSerializer(many=True)
     """list of child nodes"""
+
+    class Meta:
+        model = models.Standard
+        read_only_fields = ("_id",)
+        fields = "__all__"
+
+    def create(self, validated_data):
+        data = dict(validated_data)  # copy dict since it is mutable
+        tags = self.create_tags(data.pop("tags", []))
+        data.update({"tags": tags})
+
+        ser: models.Standard = self.Meta.model.objects.create(**data)
+        return ser
+
+    def create_tags(self, tags_datas: List[dict]):
+        tags = []
+        for data in tags_datas:
+            ser = TagSerializer(data=data)
+            assert ser.is_valid()
+            tags.append(ser.save())
+        return tags

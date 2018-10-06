@@ -1,6 +1,6 @@
 from djongo import models
 
-TAG_ORDER = ["STANDARD", "GRADE", "END_GRADE", "LEARNING_DOMAIN", "FULL_CODE"]
+TAG_ORDER = ["GRADE", "END_GRADE", "LEARNING_DOMAIN", "FULL_CODE"]
 
 
 class Tag(models.Model):
