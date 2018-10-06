@@ -45,3 +45,14 @@ class StandardSerializer(serializers.ModelSerializer):
             ser.is_valid(raise_exception=True)
             tags.append(ser.save())
         return tags
+
+    def update(self, instance: models.Standard, validated_data):
+        data = dict(validated_data)  # copy dict since it is mutable
+        tags_data = data.pop("tags", [])
+        instance.tags = self.create_tags(tags_data)
+
+        # set other attributes
+        for attr, val in data.items():
+            setattr(instance, attr, val)
+        instance.save()
+        return instance
