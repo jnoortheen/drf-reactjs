@@ -39,3 +39,9 @@ pre-commit install
 ```bash
 docker-compose -f docker-compose.yml run --rm backend pytest
 ```
+
+- to import sample csv file
+
+```
+docker-compose -f docker-compose.yml run --rm backend python manage.py import_data <optional-path>
+```
