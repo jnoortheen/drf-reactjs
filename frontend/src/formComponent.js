@@ -24,22 +24,22 @@ class FormComponent extends Component {
         <Field>
           <Label>Education Standard:</Label>
           <Control>
-            <Select2 name={'STANDARD'}/>
+            <Select2 changeHandler={this.props.onChange} name={'STANDARD'}/>
           </Control>
         </Field>
         <Field>
           <Label>Grade Level:</Label>
           <Control>
-            <Select2 name={'GRADE'}/>
+            <Select2 changeHandler={this.props.onChange} name={'GRADE'}/>
           </Control>
         </Field>
         <Field>
           <Label>Learning Domain:</Label>
-          <Control><Select2 name={'LEARNING_DOMAIN'}/></Control>
+          <Control><Select2 changeHandler={this.props.onChange} name={'LEARNING_DOMAIN'}/></Control>
         </Field>
         <Field>
           <Label>Alignment Tag:</Label>
-          <Control><Select2 name={'FULL_CODE'}/></Control>
+          <Control><Select2 changeHandler={this.props.onChange} name={'FULL_CODE'}/></Control>
         </Field>
       </ModalCardBody>
     )

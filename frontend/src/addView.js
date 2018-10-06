@@ -11,13 +11,15 @@ import {
   ModalClose
 } from 'bloomer'
 import FormComponent from './formComponent'
+import API from './api'
 
 class AddView extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       isBusy: false, // to toggle Modal
-
+      data: {}, // form data to be used to create new objects
+      showSaved: false,
     }
   }
 
@@ -25,7 +27,25 @@ class AddView extends React.Component {
    * called from FormComponent to update the current state
    */
   handleChange = (data) => {
-    console.log(data)
+    this.setState({data: Object.assign({}, this.state.data, data)})
+  }
+
+  preparedData = () => {
+    let tags = []
+    for (const [key, value] of Object.entries(this.state.data)) {
+      if (key in ['STANDARD', 'DESCRIPTION']) continue
+      let tag = {name: key, value: value}
+
+      if (key === 'FULL_CODE') {
+        tag['description'] = this.state.data['DESCRIPTION']
+      }
+
+      tags.push(tag)
+    }
+    return {
+      name: this.state.data['STANDARD'],
+      tags: tags
+    }
   }
 
   /**
@@ -33,6 +53,14 @@ class AddView extends React.Component {
    */
   startSaveHandler = () => {
     this.setState({isBusy: true})
+
+    API.post('standards.json', this.preparedData()).then((res) => {
+      this.props.closeHandler()
+      this.setState({isBusy: false})
+    }).catch((err) => {
+      alert('Caught error' + err)
+      this.setState({isBusy: false})
+    })
   }
 
   render () {
