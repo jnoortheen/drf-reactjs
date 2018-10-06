@@ -29,11 +29,9 @@ class ListView extends Component {
             API.get('standards.json', {
               params: {
                 page: state.page + 1,
-                sorted: state.sorted,
               }
             })
               .then((res) => {
-                console.log(res)
                 // Update react-table
                 this.setState({
                   data: res.data.results,
