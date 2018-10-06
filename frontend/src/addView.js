@@ -12,6 +12,7 @@ import {
 } from 'bloomer'
 import FormComponent from './formComponent'
 import API from './api'
+import { toast } from 'react-toastify'
 
 class AddView extends React.Component {
   constructor (props) {
@@ -19,7 +20,6 @@ class AddView extends React.Component {
     this.state = {
       isBusy: false, // to toggle Modal
       data: {}, // form data to be used to create new objects
-      showSaved: false,
     }
   }
 
@@ -57,6 +57,9 @@ class AddView extends React.Component {
     API.post('standards.json', this.preparedData()).then((res) => {
       this.props.closeHandler()
       this.setState({isBusy: false})
+      toast.success('Saved !', {
+        position: toast.POSITION.TOP_CENTER
+      })
     }).catch((err) => {
       alert('Caught error' + err)
       this.setState({isBusy: false})
