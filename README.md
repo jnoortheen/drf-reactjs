@@ -37,5 +37,5 @@ pre-commit install
 - to run tests
 
 ```bash
-docker-compose -f docker-compose.yml run --rm django pytest
+docker-compose -f docker-compose.yml run --rm backend pytest
 ```
