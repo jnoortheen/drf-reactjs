@@ -20,7 +20,9 @@ from standards.views import StandardViewSet, TagViewSet, StandardListViewSet
 
 router = routers.DefaultRouter()
 router.register(r"standards", StandardViewSet)
-router.register(r"standards-list", StandardListViewSet)
 router.register(r"tags", TagViewSet)
 
-urlpatterns = [url(r"^api/", include(router.urls))]
+urlpatterns = [
+    url(r"^api/", include(router.urls)),
+    url(r"^api/standards-list/", StandardListViewSet.as_view({"get": "list"})),
+]
