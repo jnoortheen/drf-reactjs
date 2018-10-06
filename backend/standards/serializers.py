@@ -7,14 +7,17 @@ from standards import models
 class TagSerializer(serializers.ModelSerializer):
     """nested node"""
 
+    _id = serializers.CharField(read_only=True)
+
     class Meta:
         model = models.Tag
-        read_only_fields = ("_id",)
         fields = "__all__"
 
 
 class StandardSerializer(serializers.ModelSerializer):
     """root node of the data"""
+
+    _id = serializers.CharField(read_only=True)
 
     tags = TagSerializer(many=True)
     """list of child nodes"""
@@ -26,7 +29,10 @@ class StandardSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         data = dict(validated_data)  # copy dict since it is mutable
-        tags = self.create_tags(data.pop("tags", []))
+        tags_data = data.pop("tags", []) or (
+            self.initial_data.get("tags", []) if self.initial_data else []
+        )
+        tags = self.create_tags(tags_data)
         data.update({"tags": tags})
 
         ser: models.Standard = self.Meta.model.objects.create(**data)
@@ -36,6 +42,6 @@ class StandardSerializer(serializers.ModelSerializer):
         tags = []
         for data in tags_datas:
             ser = TagSerializer(data=data)
-            assert ser.is_valid()
+            ser.is_valid(raise_exception=True)
             tags.append(ser.save())
         return tags
