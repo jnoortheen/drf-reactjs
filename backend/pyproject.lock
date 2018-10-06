@@ -144,6 +144,18 @@ six = ">=1.2"
 
 [[package]]
 category = "main"
+description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
+name = "django-filter"
+optional = false
+platform = "*"
+python-versions = "*"
+version = "2.0.0"
+
+[package.dependencies]
+Django = ">=1.11"
+
+[[package]]
+category = "main"
 description = "Web APIs for Django, made easy."
 name = "djangorestframework"
 optional = false
@@ -488,7 +500,7 @@ python-versions = "*"
 version = "0.1.7"
 
 [metadata]
-content-hash = "760a442e080ed35d29af8c82467ea9db9f20288be7f6f51db7abafafe666efad"
+content-hash = "cde9bc2d2d29f5c504b7fc7468ffc4b0bb178417d457975ab1e581b500ef95d4"
 platform = "*"
 python-versions = ">=3.7"
 
@@ -507,6 +519,7 @@ decorator = ["2c51dff8ef3c447388fe5e4453d24a2bf128d3a4c32af3fabef1f01c6851ab82",
 django = ["acdcc1f61fdb0a0c82a1d3bf1879a414e7732ea894a7632af7f6d66ec7ab5bb3", "efbcad7ebb47daafbcead109b38a5bd519a3c3cd92c6ed0f691ff97fcdd16b45"]
 django-cors-headers = ["5545009c9b233ea7e70da7dbab7cb1c12afa01279895086f98ec243d7eab46fa", "c4c2ee97139d18541a1be7d96fe337d1694623816d83f53cb7c00da9b94acae1"]
 django-extensions = ["30cb6a8c7d6f75a55edf0c0c4491bd98f8264ae1616ce105f9cecac4387edd07", "4ad86a7a5e84f1c77db030761ae87a600647250c652030a2b71a16e87f3a3d62"]
+django-filter = ["6f4e4bc1a11151178520567b50320e5c32f8edb552139d93ea3e30613b886f56", "86c3925020c27d072cdae7b828aaa5d165c2032a629abbe3c3a1be1edae61c58"]
 djangorestframework = ["b6714c3e4b0f8d524f193c91ecf5f5450092c2145439ac2769711f7eba89a9d9", "c375e4f95a3a64fccac412e36fb42ba36881e52313ec021ef410b40f67cddca4"]
 djongo = ["4accec6327e3334f37eca34c403b658f0ada97b3d33af6c25432d48816578a7c", "b61191ec0754eb9bb89dd5045e58aab1ba592994ea89aa024d4b4046fc93ee3f"]
 faker = ["74b32991f8e08e4f2f84858b919eca253becfaec4b3fa5fcff7fdbd70d5d78b1", "c2ce42dd8361e6d392276006d757532562463c8642b1086709584200b7fd7758"]

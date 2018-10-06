@@ -14,6 +14,16 @@ class TagSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class StandardListSerializer(serializers.ModelSerializer):
+    """for select2 AJAX LIST view"""
+
+    _id = serializers.CharField(read_only=True)
+
+    class Meta:
+        model = models.Standard
+        fields = ["_id", "name"]
+
+
 class StandardSerializer(serializers.ModelSerializer):
     """root node of the data"""
 

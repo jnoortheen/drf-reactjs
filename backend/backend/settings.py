@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     # 3rd party apps
     "rest_framework",
     "rest_framework.authtoken",
+    "corsheaders",
     "django_extensions",
+    "django_filters",
     # local apps
     "standards",
 ]
@@ -46,12 +48,15 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = ("localhost:3000", "frontend:3000", "127.0.0.1:3000")
 
 ROOT_URLCONF = "backend.urls"
 
@@ -115,5 +120,9 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.TokenAuthentication",
         # 'rest_framework.authentication.SessionAuthentication',
-    )
+    ),
+    # "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "DEFAULT_PAGINATION_CLASS": "backend.pagination.TotPageNumberPagination",
+    "PAGE_SIZE": 20,
+    "DEFAULT_FILTER_BACKENDS": ("django_filters.rest_framework.DjangoFilterBackend",),
 }

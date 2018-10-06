@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from rest_framework import routers
 
-from standards.views import StandardViewSet
+from standards.views import StandardViewSet, TagViewSet, StandardListViewSet
 
 router = routers.DefaultRouter()
 router.register(r"standards", StandardViewSet)
+router.register(r"standards-list", StandardListViewSet)
+router.register(r"tags", TagViewSet)
 
 urlpatterns = [url(r"^api/", include(router.urls))]

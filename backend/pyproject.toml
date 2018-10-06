@@ -12,6 +12,7 @@ djangorestframework = "^3.8"
 django-extensions = "^2.1"
 djongo = "^1.2"
 django-cors-headers = "^2.4"
+django-filter = "^2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.8"
