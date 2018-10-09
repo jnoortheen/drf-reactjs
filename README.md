@@ -25,6 +25,8 @@ docker-compose -f docker-compose.yml build
 docker-compose -f docker-compose.yml up
 ```
 
+- visit `http://localhost:8000/api/` to interact with backend and `http://localhost:3000/`
+
 # local development
 
 - ensure that [pre-commit](https://pre-commit.com/) is installed 
@@ -44,4 +46,16 @@ docker-compose -f docker-compose.yml run --rm backend pytest
 
 ```
 docker-compose -f docker-compose.yml run --rm backend python manage.py import_data <optional-path>
+```
+
+# front-end
+
+- Click the add button to create new records. Either you can select a value/create new one for a field.
+
+# troubleshooting
+
+- issue a clean build of docker images with 
+
+```bash
+docker-compose -f docker-compose.yml build --no-cache
 ```
