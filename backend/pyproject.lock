@@ -499,8 +499,17 @@ platform = "UNKNOWN"
 python-versions = "*"
 version = "0.1.7"
 
+[[package]]
+category = "main"
+description = "The comprehensive WSGI web application library."
+name = "werkzeug"
+optional = false
+platform = "any"
+python-versions = "*"
+version = "0.14.1"
+
 [metadata]
-content-hash = "cde9bc2d2d29f5c504b7fc7468ffc4b0bb178417d457975ab1e581b500ef95d4"
+content-hash = "07fa83cee05d4eae51603c6bd2b42d8b671108ac0d706c0a9420c3bb16f01cd8"
 platform = "*"
 python-versions = ">=3.7"
 
@@ -549,3 +558,4 @@ text-unidecode = ["5a1375bb2ba7968740508ae38d92e1f889a0832913cb1c447d5e2046061a3
 toml = ["229f81c57791a41d65e399fc06bf0848bab550a9dfd5ed66df18ce5f05e73d5c", "235682dd292d5899d361a811df37e04a8828a5b1da3115886b73cf81ebc9100e", "f1db651f9657708513243e61e6cc67d101a39bad662eaa9b5546f789338e07a3"]
 traitlets = ["9c4bd2d267b7153df9152698efb1050a5d84982d3384a37b2c1f7723ba3e7835", "c6cb5e6f57c5a9bdaa40fa71ce7b4af30298fbab9ece9815b5d995ab6217c7d9"]
 wcwidth = ["3df37372226d6e63e1b1e1eda15c594bca98a22d33a23832a90998faa96bc65e", "f4ebe71925af7b40a864553f761ed559b43544f8f71746c2d756c7fe788ade7c"]
+werkzeug = ["c3fd7a7d41976d9f44db327260e263132466836cef6f91512889ed60ad26557c", "d5da73735293558eb1651ee2fddc4d0dedcfa06538b8813a2e20011583c9e49b"]

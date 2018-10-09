@@ -13,6 +13,7 @@ django-extensions = "^2.1"
 djongo = "^1.2"
 django-cors-headers = "^2.4"
 django-filter = "^2.0"
+Werkzeug = "^0.14.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.8"
