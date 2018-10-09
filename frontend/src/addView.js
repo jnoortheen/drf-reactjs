@@ -33,7 +33,9 @@ class AddView extends React.Component {
   preparedData = () => {
     let tags = []
     for (const [key, value] of Object.entries(this.state.data)) {
-      if (key in ['STANDARD', 'DESCRIPTION']) continue
+      if (['STANDARD', 'DESCRIPTION'].indexOf(key) !== -1) {
+        continue
+      }
       let tag = {name: key, value: value}
 
       if (key === 'FULL_CODE') {

@@ -5,7 +5,7 @@ import 'bulma/css/bulma.css'
 import { Columns, Container } from 'bloomer'
 import ListView from './listView'
 import AddViewModal from './addView'
-import { toast, ToastContainer } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 class App extends Component {

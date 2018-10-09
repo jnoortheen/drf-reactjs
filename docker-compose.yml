@@ -20,13 +20,18 @@ services:
       - "8000:8000"
     expose:
       - "8000"
+    depends_on:
+      - mongodb
   frontend:
     build: frontend/
     command: yarn start
     volumes:
       - ./frontend:/frontend
-      - /frontend/node_modules
+      - node-modules:/frontend/node_modules
     ports:
       - "3000:3000"
     depends_on:
       - backend
+
+volumes:
+  node-modules:

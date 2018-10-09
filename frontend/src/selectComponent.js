@@ -42,7 +42,7 @@ class Select2 extends React.Component {
 
   handleChange = (val) => {
     let data = {}
-    data[this.props.name] = val.value || val.name
+    data[this.props.name] = val.label
     this.props.changeHandler(data)
   }
 
